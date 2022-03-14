@@ -1,0 +1,52 @@
+<html>
+<script>
+
+    function FIREcalc() {
+
+        Y = document.getElementById("y").value; // number you wish to reach
+        A = document.getElementById("a").value; // amount you already have invested
+        r = document.getElementById("r").value; // interest rate
+        n = document.getElementById("n").value; // number of years to retirement
+        result = document.getElementById("result");
+    
+        //S = (Y - (A* (1 + r)^n) / (((1 + r)^n - 1)/r)
+        S = (Y - (A * (Math.pow ((1 + r), n)))) / ((Math.pow ((1 + r), n)-1)/ r);
+
+        //toFixed is used for rounding the amount with two decimal places.
+        result.innerHTML = "You will need to save " + S.toFixed(2) + " every year in order to retire in " + n + " years";
+       
+    }
+</script>
+<table>
+    <tr>
+        <td>Amount you wish to have at retirement:</td>
+        <td>
+            <input id="y">
+        </td>
+    <tr>
+        <td>Amount you already have invested:</td>
+        <td >
+            <input id="a">
+        </td>
+    </tr>
+    </tr>
+    <tr>
+        <td>Enter your interest rate as a decimal:</td>
+        <td>
+            <input id="r">
+        </td>
+    </tr>
+    <tr>
+        <td>Number of years until retirement:</td>
+        <td>
+            <input id="n">
+        </td>
+    </tr>
+</table>
+</br>
+
+<button onClick="FIREcalc()">Calculate</button>
+<p id="result"></p>
+
+
+</html>
